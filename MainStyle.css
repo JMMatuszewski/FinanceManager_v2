@@ -1,0 +1,75 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Courier New', serif;
+    /* font-family: 'Luminari', fantasy; */
+    /*Lucida Sans  sans-serif*/
+    box-sizing: border-box;
+}
+
+
+body {
+    /* border: 5px groove #fb8500; */
+    background-color: #122939;
+    background-image: url(Graphics/Forrest.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* background: -webkit-linear-gradient(0deg, gray 50%, darkgray 0); */
+    /* background: linear-gradient(90deg, gray 50%, darkgray 0); */
+}
+
+nav {
+    backdrop-filter: blur(5px);
+    border-bottom: 10px ridge #3fc0a2;
+}
+
+.textMain {
+    color: rgb(218, 104, 5);
+    font-weight: bold;
+}
+
+.title {
+    margin: 10px;
+    font-weight: bold;
+    color: #3cb89c;
+    text-align: center;
+    /* border: 5px ridge #00e759; */
+}
+
+.forms {
+    font-size: 25px;
+    text-align: center;
+    font-weight: bold;
+    color: #3cb89c;
+    text-shadow: 2px 2px #122939;
+    /* Position */
+}
+
+.inputs {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.button {
+    height: 50px;
+    width: 200px;
+    border-radius: 8px;
+    font-size: 20px;
+    text-align: center;
+    text-decoration: none;
+    color: #122939;
+    padding: 10px;
+    background-color: #da6805;
+    border: 2px solid #000000;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.button:hover {
+    box-shadow: rgba(44, 187, 99, .35) 0 -25px 18px -14px inset, rgba(44, 187, 99, .25) 0 1px 2px, rgba(44, 187, 99, .25) 0 2px 4px, rgba(44, 187, 99, .25) 0 4px 8px, rgba(44, 187, 99, .25) 0 8px 16px, rgba(44, 187, 99, .25) 0 16px 32px;
+    transform: scale(1.05) rotate(-1deg);
+}
+
+.qrwa {
+    min-width: 100px;
+}
