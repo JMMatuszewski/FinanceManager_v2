@@ -38,7 +38,7 @@
                     <div class="row justify-content-center p-3"><a href="LoginWindow.php" type="button"
                             class="button btn-outline-info">Login</a>
                     </div>
-                    <div class="row justify-content-center p-3"><a href="Register.html" type="button"
+                    <div class="row justify-content-center p-3"><a href="RegisterWindow.php" type="button"
                             class="button btn-outline-info">Register</a>
                     </div>
                 </div>

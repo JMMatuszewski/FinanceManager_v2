@@ -33,7 +33,7 @@ nav {
     font-weight: bold;
     color: #3cb89c;
     text-align: center;
-    /* border: 5px ridge #00e759; */
+    /* border: 5px ridge #00e759; #3cb89c;*/
 }
 
 .forms {
@@ -45,9 +45,18 @@ nav {
     /* Position */
 }
 
+.forms .errors {
+    height: 30px;
+    margin: 0px;
+    color: red;
+    font-size: 15px;
+    text-shadow: none;
+    font-weight: none;
+}
+
 .inputs {
     margin-top: 15px;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
 }
 
 .button {

@@ -37,7 +37,7 @@
                     <h2 class="display-5 title">Welcome Back!</h2>
                     <form action="LoginAction.php" class="forms" method="post">
                         Login: <br />
-                        <input type="text" class="inputs" name="login" placeholder="login" /><br />
+                        <input type="text" class="inputs" name="username" placeholder="login" /><br />
                         Password: <br />
                         <input type="password" class="inputs"name="pass" placeholder="password" /><br />
                         <input type="submit" class="button" value="Login" />
@@ -50,7 +50,7 @@
     </main>
 
 <?php
-if(isset($_SESSION['blad']))	echo $_SESSION['blad'];
+if(isset($_SESSION['error']))	echo $_SESSION['error'];
 ?>
 </body>
 </html>
