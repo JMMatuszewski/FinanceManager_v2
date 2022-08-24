@@ -56,6 +56,12 @@
 
         $pass_hash = password_hash($password, PASSWORD_DEFAULT);
 
+        //memorize data
+        $_SESSION['m_user'] = $username;
+        $_SESSION['m_email'] = $email;
+        $_SESSION['m_pass'] = $password;
+        $_SESSION['m_verpass'] = $ver_password;
+
 		require_once "connect.php";
 		mysqli_report(MYSQLI_REPORT_STRICT);
 
@@ -114,17 +120,8 @@
         }
         catch(Exception $e)
         {
-			echo '<span style="color:red;">Błąd serwera! Przepraszamy za niedogodności i prosimy o rejestrację w innym terminie!</span>';
-			echo '<br />Informacja developerska: '.$e;
+			echo '<span style="color:red;">Something went wrong, we are sorry for inconvenience.</span>';
+			echo '<br />Developer informations: '.$e;
 		}
-
-
-
-
-
-
     }
-
-
-
 ?>

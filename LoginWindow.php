@@ -15,15 +15,15 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="MainMenu.html">Finances Manager</a>
+            <a class="navbar-brand" href="Index.php">Finances Manager</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navexpand">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navexpand">
                 <div class="navbar-nav">
-                    <a href="MainMenu.html" class="nav-item nav-link">Main</a>
-                    <a href="#" class="nav-item nav-link">Register</a>
-                    <a href="#" class="nav-item nav-link">Login</a>
+                    <a href="Index.php" class="nav-item nav-link">Main</a>
+                    <a href="RegisterWindow.php" class="nav-item nav-link">Register</a>
+                    <a href="LoginWindow.php" class="nav-item nav-link">Login</a>
                 </div>
             </div>
         </div>

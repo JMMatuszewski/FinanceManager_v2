@@ -20,15 +20,15 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="MainMenu.html">Finances Manager</a>
+            <a class="navbar-brand" href="Index.php">Finances Manager</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navexpand">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navexpand">
                 <div class="navbar-nav">
                     <a href="Index.php" class="nav-item nav-link">Main</a>
-                    <a href="#" class="nav-item nav-link">Register</a>
-                    <a href="#" class="nav-item nav-link">Login</a>
+                    <a href="RegisterWindow.php" class="nav-item nav-link">Register</a>
+                    <a href="LoginWindow.php" class="nav-item nav-link">Login</a>
                 </div>
             </div>
         </div>
@@ -42,7 +42,14 @@
                     <h2 class="display-5 title">Welcome!</h2>
                     <form action="RegisterAction.php" class="forms" method="post">
                         Login: <br />
-                        <input type="text" class="inputs" name="username" placeholder="login" /><br />
+                        <input type="text" class="inputs" name="username" value="<?php
+                        if(isset($_SESSION['m_user']))
+                        {
+                            echo $_SESSION['m_user'];
+                            unset($_SESSION['m_user']);
+                        }
+                        ?>" /><br />
+                        
                         <div class="errors">
                         <?php
                         if (isset($_SESSION['val_user']))
@@ -50,18 +57,18 @@
                             echo $_SESSION['val_user'];
                             unset($_SESSION['val_user']);
                         }
-                        /*
-                        if (isset($_SESSION['val_user']))
-                        {
-                            echo '<div class="errors">'.$_SESSION['val_user'].'</div>';
-                            unset($_SESSION['val_user']);
-                        }
-                        */
                         ?>
                         </div>
 
                         Email: <br />
-                        <input type="text" class="inputs" name="email" /><br />
+                        <input type="text" class="inputs" name="email" value="<?php
+                        if(isset($_SESSION['m_email']))
+                        {
+                            echo $_SESSION['m_email'];
+                            unset($_SESSION['m_email']);
+                        }
+                        ?>"/><br />
+
                         <div class="errors">
                         <?php
                         if (isset($_SESSION['val_email']))
