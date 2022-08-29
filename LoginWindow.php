@@ -1,3 +1,13 @@
+<?php
+    session_start();
+
+    if((isset($_SESSION['logged'])) && ($_SESSION['logged'] == true))
+    {
+        header('Location: UserWindow.php');
+        exit();
+    }
+?>
+
 <!DOCTYPE HTML>
 <html lang="pl">
 <head>
@@ -38,9 +48,22 @@
                     <form action="LoginAction.php" class="forms" method="post">
                         Login: <br />
                         <input type="text" class="inputs" name="username" placeholder="login" /><br />
+                        <div class="errors"></div>
+
                         Password: <br />
                         <input type="password" class="inputs"name="pass" placeholder="password" /><br />
+                        <div class="errors"></div>
+
                         <input type="submit" class="button" value="Login" />
+                        <div class="errors">
+                        <?php
+                        if (isset($_SESSION['e_login']))
+                        {
+                            echo $_SESSION['e_login'];
+                            unset($_SESSION['e_login']);
+                        }
+                        ?>
+                        </div>
                     </form>
 
                 </div>
@@ -49,8 +72,5 @@
         </div>
     </main>
 
-<?php
-if(isset($_SESSION['error']))	echo $_SESSION['error'];
-?>
 </body>
 </html>

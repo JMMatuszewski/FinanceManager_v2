@@ -59,8 +59,6 @@
         //memorize data
         $_SESSION['m_user'] = $username;
         $_SESSION['m_email'] = $email;
-        $_SESSION['m_pass'] = $password;
-        $_SESSION['m_verpass'] = $ver_password;
 
 		require_once "connect.php";
 		mysqli_report(MYSQLI_REPORT_STRICT);
@@ -102,10 +100,47 @@
                 {
                     if($connection->query("INSERT INTO users VALUES (NULL, '$username', '$pass_hash', '$email')"))
                     {
+                        unset($_SESSION['m_user']);
+                        unset($_SESSION['m_email']);
+                        
+                        // DATABASE INIT //
+
+                        $userDB = $connection->query("SELECT id FROM users WHERE username='$username'");
+                        $userRowId = $userDB->fetch_assoc();
+                        $id = $userRowId['id'];
+
+                        $expCategories = $connection->query("SELECT * FROM expenses_category_default");
+                        $incCategories = $connection->query("SELECT * FROM incomes_category_default");
+                        $payCategories = $connection->query("SELECT * FROM payment_methods_default");
+
+                        while($row = $expCategories->fetch_assoc())
+                        {
+                            //$cat = $row['name'];
+                            $connection->query("INSERT INTO expenses_category_assigned_to_users VALUES (NULL, '$id' ,'".$row['name']."')");
+                        }
+                        unset($row);
+
+                        while($row = $incCategories->fetch_assoc())
+                        {
+                            $inc = $row['name'];
+                            $connection->query("INSERT INTO incomes_category_assigned_to_users VALUES (NULL, '$id' ,'$inc')");
+                        }
+                        unset($row);
+
+                        while($row = $payCategories->fetch_assoc())
+                        {
+                            $pay = $row['name'];
+                            $connection->query("INSERT INTO payment_methods_assigned_to_users VALUES (NULL, '$id' ,'$pay')");
+                        }
+                        unset($row);
+
+                        // WELCOMING WINDOW //
+                        
                         echo '<script type="text/javascript">
                         alert("Thank You for registration ' . $username .'");
                         window.location.href="Index.php";
                         </script>';
+                        
                     }
 
 
@@ -115,7 +150,7 @@
                     header('Location: RegisterWindow.php');
                 }
 
-                $polaczenie->close();
+                $connection->close();
             }
         }
         catch(Exception $e)
