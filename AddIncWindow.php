@@ -153,8 +153,8 @@
     <script type="text/javascript">
 
       var date = new Date();
-      var month = date.getMonth();
-      var year = date.getUTCFullYear() - 18;
+      var month = date.getMonth()+1;
+      var year = date.getUTCFullYear();
       var day = date.getDate();
       if(month < 10){
         month = "0" + month;
@@ -162,6 +162,7 @@
       if(day < 10){
         day = "0" + day;
       }
+
       var maxDate = year + "-" + month + "-" + day;
       document.getElementById("dateMax").setAttribute("max", maxDate);
     </script>
